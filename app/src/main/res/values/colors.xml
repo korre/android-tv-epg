@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="epg_background">#ff1e1e1e</color>
+    <color name="epg_channel_layout_background">#ff323232</color>
+    <color name="epg_event_layout_background">#ff4f4f4f</color>
+    <color name="epg_event_layout_background_current">#ff3b3b3b</color>
+    <color name="epg_event_layout_text">#ffd6d6d6</color>
+    <color name="epg_time_bar">#ffc57120</color>
+</resources>

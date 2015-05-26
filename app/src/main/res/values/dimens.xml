@@ -1,0 +1,18 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- EPG dimensions-->
+    <dimen name="epg_channel_layout_margin">3dp</dimen>
+    <dimen name="epg_channel_layout_padding">8dp</dimen>
+    <dimen name="epg_channel_layout_height">70dp</dimen>
+    <dimen name="epg_channel_layout_width">70dp</dimen>
+    <dimen name="epg_event_layout_text">20dp</dimen>
+    <dimen name="epg_time_bar_height">30dp</dimen>
+    <dimen name="epg_time_bar_text">14dp</dimen>
+    <dimen name="epg_time_bar_line_width">2dp</dimen>
+    <dimen name="epg_reset_button_size">40dp</dimen>
+    <dimen name="epg_reset_button_margin">10dp</dimen>
+
+</resources>
