@@ -39,7 +39,7 @@ epg.setEPGData(new EPGDataImpl(MockDataService.getMockData()));
 ```
 
 Thats basically it. 
-If you want to use it in your project you also needs the resources from example project, except the epg package, for it to work.
+If you want to use it in your project you also need the resources from example project, as well as the epg package, for it to work.
 If you have any questions or such don't hesitate to contact me.
 
 Good luck!
