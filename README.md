@@ -1,6 +1,6 @@
 # Electronic Program Guide for Android
 
-<img src="http://kmdev.se/img/gh-epg.png" width="600" />
+[![Click for video](http://kmdev.se/img/gh-epg.png)](http://www.kmdev.se/wp-content/uploads/2015/05/epg-recording.mp4)
 
 This is a "classic" TV EPG which works on tablets and phones and allows you to scroll in all directions (horizontal, vertical and diagonal).
 Example project is located in repo but in short you need to add the EPG to your xml or by code:
@@ -23,7 +23,7 @@ epg.setEPGClickListener(new EPGClickListener() {
 
         @Override
         public void onEventClicked(int channelPosition, int programPosition, EPGEvent epgEvent) {
-            // Event clicked
+            // Program event clicked
         }
 
         @Override
@@ -39,8 +39,7 @@ epg.setEPGData(new EPGDataImpl(MockDataService.getMockData()));
 ```
 
 Thats basically it. 
-If you want to use it in your project you also need the resources from example project, as well as the epg package, for it to work.
-If you have any questions or such don't hesitate to contact me.
+If you want to use it in your project you need resources from the example project as well as the epg package for it to work. If you have any questions or such don't hesitate to contact me.
 
 Good luck!
 
