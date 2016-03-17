@@ -284,7 +284,7 @@ public class EPG extends ViewGroup {
         final int firstPos = getFirstVisibleChannelPosition();
         final int lastPos = getLastVisibleChannelPosition();
 
-        for (int pos = firstPos; pos < lastPos; pos++) {
+        for (int pos = firstPos; pos <= lastPos; pos++) {
 
             // Set clip rectangle
             mClipRect.left = getScrollX() + mChannelLayoutWidth + mChannelLayoutMargin;
@@ -358,7 +358,10 @@ public class EPG extends ViewGroup {
         mPaint.setColor(mChannelLayoutBackground);
         canvas.drawRect(mMeasuringRect, mPaint);
 
-        for (int pos = getFirstVisibleChannelPosition(); pos < getLastVisibleChannelPosition(); pos++) {
+        final int firstPos = getFirstVisibleChannelPosition();
+        final int lastPos = getLastVisibleChannelPosition();
+
+        for (int pos = firstPos; pos <= lastPos; pos++) {
             drawChannelItem(canvas, pos, drawingRect);
         }
     }
