@@ -501,7 +501,7 @@ public class EPG extends ViewGroup {
     }
 
     private long calculateMillisPerPixel() {
-        return HOURS_IN_VIEWPORT_MILLIS / getResources().getDisplayMetrics().widthPixels;
+        return HOURS_IN_VIEWPORT_MILLIS / (getResources().getDisplayMetrics().widthPixels - mChannelLayoutWidth - mChannelLayoutMargin);
     }
 
     private int getXPositionStart() {
