@@ -477,7 +477,7 @@ public class EPG extends ViewGroup {
     }
 
     private void calculateMaxHorizontalScroll() {
-        mMaxHorizontalScroll = (int) ((DAYS_BACK_MILLIS + DAYS_FORWARD_MILLIS) / mMillisPerPixel);
+        mMaxHorizontalScroll = (int) ((DAYS_BACK_MILLIS + DAYS_FORWARD_MILLIS - HOURS_IN_VIEWPORT_MILLIS) / mMillisPerPixel);
     }
 
     private void calculateMaxVerticalScroll() {
