@@ -284,7 +284,7 @@ public class EPG extends ViewGroup {
         final int firstPos = getFirstVisibleChannelPosition();
         final int lastPos = getLastVisibleChannelPosition();
 
-        for (int pos = firstPos; pos < lastPos; pos++) {
+        for (int pos = firstPos; pos <= lastPos; pos++) {
 
             // Set clip rectangle
             mClipRect.left = getScrollX() + mChannelLayoutWidth + mChannelLayoutMargin;
@@ -358,7 +358,10 @@ public class EPG extends ViewGroup {
         mPaint.setColor(mChannelLayoutBackground);
         canvas.drawRect(mMeasuringRect, mPaint);
 
-        for (int pos = getFirstVisibleChannelPosition(); pos < getLastVisibleChannelPosition(); pos++) {
+        final int firstPos = getFirstVisibleChannelPosition();
+        final int lastPos = getLastVisibleChannelPosition();
+
+        for (int pos = firstPos; pos <= lastPos; pos++) {
             drawChannelItem(canvas, pos, drawingRect);
         }
     }
@@ -474,7 +477,7 @@ public class EPG extends ViewGroup {
     }
 
     private void calculateMaxHorizontalScroll() {
-        mMaxHorizontalScroll = (int) ((DAYS_BACK_MILLIS + DAYS_FORWARD_MILLIS) / mMillisPerPixel);
+        mMaxHorizontalScroll = (int) ((DAYS_BACK_MILLIS + DAYS_FORWARD_MILLIS - HOURS_IN_VIEWPORT_MILLIS) / mMillisPerPixel);
     }
 
     private void calculateMaxVerticalScroll() {
@@ -498,7 +501,7 @@ public class EPG extends ViewGroup {
     }
 
     private long calculateMillisPerPixel() {
-        return HOURS_IN_VIEWPORT_MILLIS / getResources().getDisplayMetrics().widthPixels;
+        return HOURS_IN_VIEWPORT_MILLIS / (getResources().getDisplayMetrics().widthPixels - mChannelLayoutWidth - mChannelLayoutMargin);
     }
 
     private int getXPositionStart() {
@@ -514,7 +517,8 @@ public class EPG extends ViewGroup {
 
     private Rect calculateChannelsHitArea() {
         mMeasuringRect.top = mTimeBarHeight;
-        mMeasuringRect.bottom = getHeight();
+        int visibleChannelsHeight = epgData.getChannelCount() * (mChannelLayoutHeight + mChannelLayoutMargin);
+        mMeasuringRect.bottom = visibleChannelsHeight < getHeight() ? visibleChannelsHeight : getHeight();
         mMeasuringRect.left = 0;
         mMeasuringRect.right = mChannelLayoutWidth;
         return mMeasuringRect;
@@ -522,7 +526,8 @@ public class EPG extends ViewGroup {
 
     private Rect calculateProgramsHitArea() {
         mMeasuringRect.top = mTimeBarHeight;
-        mMeasuringRect.bottom = getHeight();
+        int visibleChannelsHeight = epgData.getChannelCount() * (mChannelLayoutHeight + mChannelLayoutMargin);
+        mMeasuringRect.bottom = visibleChannelsHeight < getHeight() ? visibleChannelsHeight : getHeight();
         mMeasuringRect.left = mChannelLayoutWidth;
         mMeasuringRect.right = getWidth();
         return mMeasuringRect;
