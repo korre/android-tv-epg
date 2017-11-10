@@ -1,6 +1,6 @@
 # Electronic Program Guide for Android
 
-[![Click for video](http://www.happanero.se/wp-content/uploads/2017/11/epg-recording.mp4)
+[![Click for video](http://www.happanero.se/wp-content/uploads/2017/11/epg-recording.mp4)]
 
 This is a "classic" TV EPG which works on tablets and phones and allows you to scroll in all directions (horizontal, vertical and diagonal).
 Example project is located in repo but in short you need to add the EPG to your xml or by code:
