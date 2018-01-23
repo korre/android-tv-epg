@@ -1,4 +1,4 @@
-package se.kmdev.tvepg.epg.domain;
+package se.kmdev.epg.domain;
 
 /**
  * Created by Kristoffer.

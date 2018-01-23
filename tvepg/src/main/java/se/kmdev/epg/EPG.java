@@ -1,4 +1,4 @@
-package se.kmdev.tvepg.epg;
+package se.kmdev.epg;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -22,9 +22,9 @@ import org.joda.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-import se.kmdev.tvepg.R;
-import se.kmdev.tvepg.epg.domain.EPGEvent;
-import se.kmdev.tvepg.epg.misc.EPGUtil;
+import se.kmdev.epg.R;
+import se.kmdev.epg.domain.EPGEvent;
+import se.kmdev.epg.misc.EPGUtil;
 
 /**
  * Classic EPG, electronic program guide, that scrolls both horizontal, vertical and diagonal.

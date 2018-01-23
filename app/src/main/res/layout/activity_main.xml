@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <se.kmdev.tvepg.epg.EPG
+    <se.kmdev.epg.EPG
         android:id="@+id/epg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

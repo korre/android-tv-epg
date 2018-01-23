@@ -1,9 +1,9 @@
-package se.kmdev.tvepg.epg;
+package se.kmdev.epg;
 
 import java.util.List;
 
-import se.kmdev.tvepg.epg.domain.EPGChannel;
-import se.kmdev.tvepg.epg.domain.EPGEvent;
+import se.kmdev.epg.domain.EPGChannel;
+import se.kmdev.epg.domain.EPGEvent;
 
 /**
  * Interface to implement and pass to EPG containing data to be used.

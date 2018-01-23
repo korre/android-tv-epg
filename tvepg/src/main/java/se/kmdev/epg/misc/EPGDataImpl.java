@@ -1,13 +1,13 @@
-package se.kmdev.tvepg.epg.misc;
+package se.kmdev.epg.misc;
 
 import com.google.common.collect.Lists;
 
 import java.util.List;
 import java.util.Map;
 
-import se.kmdev.tvepg.epg.EPGData;
-import se.kmdev.tvepg.epg.domain.EPGChannel;
-import se.kmdev.tvepg.epg.domain.EPGEvent;
+import se.kmdev.epg.EPGData;
+import se.kmdev.epg.domain.EPGChannel;
+import se.kmdev.epg.domain.EPGEvent;
 
 /**
  * TODO: Add null check when fetching at position etc.
