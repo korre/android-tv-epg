@@ -3,8 +3,12 @@ package se.kmdev.tvepg;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.InputDevice;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import se.kmdev.epg.EPG;
@@ -42,10 +46,48 @@ public class MainActivity extends AppCompatActivity {
                 epg.recalculateAndRedraw(true);
             }
         });
-
         // Do initial load of data.
         new AsyncLoadEPGData(epg).execute();
+
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        int[] diff = {0 , 0};
+        int step = 100;
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_DPAD_DOWN:
+                diff[1] = step;
+                break;
+            case KeyEvent.KEYCODE_DPAD_UP:
+                diff[1] = -1 * step;
+                break;
+
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
+                diff[0] = step;
+                break;
+
+            case KeyEvent.KEYCODE_DPAD_LEFT:
+                diff[0] = -1 * step;
+                break;
+
+            case 284:
+                epg.moveLeft();
+                break;
+            case 285:
+                epg.moveRight();
+                break;
+            case 286:
+                epg.moveUp();
+                break;
+            case 287:
+                epg.moveDown();
+                break;
+        }
+        epg.scrollBy(diff[0], diff[1]);
+        return false;
+    }
+
 
     @Override
     protected void onDestroy() {

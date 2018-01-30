@@ -2,6 +2,7 @@ package se.kmdev.epg.misc;
 
 import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -42,5 +43,15 @@ public class EPGDataImpl implements EPGData {
     @Override
     public boolean hasData() {
         return !channels.isEmpty();
+    }
+
+
+    @Override
+    public void cleanSelection() {
+        for (List<EPGEvent> channelEvents : this.events) {
+            for (EPGEvent event : channelEvents) {
+                if(event.isSelected()) event.setSelected(false);
+            }
+        }
     }
 }

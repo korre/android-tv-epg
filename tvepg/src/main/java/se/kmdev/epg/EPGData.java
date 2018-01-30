@@ -21,4 +21,6 @@ public interface EPGData {
     int getChannelCount();
 
     boolean hasData();
+
+    void cleanSelection();
 }
