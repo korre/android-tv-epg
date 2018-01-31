@@ -53,39 +53,23 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        int[] diff = {0 , 0};
-        int step = 100;
         switch (keyCode) {
             case KeyEvent.KEYCODE_DPAD_DOWN:
-                diff[1] = step;
+                epg.moveDown();
                 break;
             case KeyEvent.KEYCODE_DPAD_UP:
-                diff[1] = -1 * step;
+                epg.moveUp();
                 break;
 
             case KeyEvent.KEYCODE_DPAD_RIGHT:
-                diff[0] = step;
+                epg.moveRight();
                 break;
 
             case KeyEvent.KEYCODE_DPAD_LEFT:
-                diff[0] = -1 * step;
-                break;
-
-            case 284:
                 epg.moveLeft();
                 break;
-            case 285:
-                epg.moveRight();
-                break;
-            case 286:
-                epg.moveUp();
-                break;
-            case 287:
-                epg.moveDown();
-                break;
         }
-        epg.scrollBy(diff[0], diff[1]);
-        return false;
+        return true;
     }
 
 
