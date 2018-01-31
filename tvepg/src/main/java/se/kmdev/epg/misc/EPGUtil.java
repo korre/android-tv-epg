@@ -1,4 +1,4 @@
-package se.kmdev.tvepg.epg.misc;
+package se.kmdev.epg.misc;
 
 import android.content.Context;
 import android.net.Uri;

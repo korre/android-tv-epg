@@ -1,7 +1,7 @@
-package se.kmdev.tvepg.epg;
+package se.kmdev.epg;
 
-import se.kmdev.tvepg.epg.domain.EPGChannel;
-import se.kmdev.tvepg.epg.domain.EPGEvent;
+import se.kmdev.epg.domain.EPGChannel;
+import se.kmdev.epg.domain.EPGEvent;
 
 /**
  * Created by Kristoffer on 15-05-25.

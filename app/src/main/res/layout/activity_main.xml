@@ -2,9 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
 
-    <se.kmdev.tvepg.epg.EPG
+    <se.kmdev.epg.EPG
         android:id="@+id/epg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

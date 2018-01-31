@@ -1,4 +1,4 @@
-package se.kmdev.tvepg.epg.misc;
+package se.kmdev.epg.misc;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import se.kmdev.tvepg.epg.EPG;
-import se.kmdev.tvepg.epg.domain.EPGChannel;
-import se.kmdev.tvepg.epg.domain.EPGEvent;
+import se.kmdev.epg.EPG;
+import se.kmdev.epg.domain.EPGChannel;
+import se.kmdev.epg.domain.EPGEvent;
 
 /**
  * Created by Kristoffer on 15-05-24.
@@ -37,11 +37,11 @@ public class MockDataService {
     );
 
     private static List<String> availableChannelLogos = Lists.newArrayList(
-            "http://kmdev.se/epg/1.png",
-            "http://kmdev.se/epg/2.png",
-            "http://kmdev.se/epg/3.png",
-            "http://kmdev.se/epg/4.png",
-            "http://kmdev.se/epg/5.png"
+            "https://upload.wikimedia.org/wikipedia/pt/2/22/Logotipo_da_Rede_Globo.png",
+            "https://upload.wikimedia.org/wikipedia/pt/2/22/Logotipo_da_Rede_Globo.png",
+            "https://upload.wikimedia.org/wikipedia/pt/2/22/Logotipo_da_Rede_Globo.png",
+            "https://upload.wikimedia.org/wikipedia/pt/2/22/Logotipo_da_Rede_Globo.png",
+            "https://upload.wikimedia.org/wikipedia/pt/2/22/Logotipo_da_Rede_Globo.png"
     );
 
     public static Map<EPGChannel, List<EPGEvent>> getMockData() {
