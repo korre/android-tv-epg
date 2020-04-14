@@ -481,7 +481,7 @@ public class EPG extends ViewGroup {
     }
 
     private void calculateMaxVerticalScroll() {
-        final int maxVerticalScroll = getTopFrom(epgData.getChannelCount() - 2) + mChannelLayoutHeight;
+        final int maxVerticalScroll = getTopFrom(epgData.getChannelCount() - 1) + mChannelLayoutHeight;
         mMaxVerticalScroll = maxVerticalScroll < getHeight() ? 0 : maxVerticalScroll - getHeight();
     }
 
