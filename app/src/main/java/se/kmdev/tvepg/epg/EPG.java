@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
-import android.widget.Scroller;
+import android.widget.OverScroller;
 
 import com.google.common.collect.Maps;
 import com.squareup.picasso.Picasso;
@@ -45,7 +45,7 @@ public class EPG extends ViewGroup {
     private final Rect mDrawingRect;
     private final Rect mMeasuringRect;
     private final Paint mPaint;
-    private final Scroller mScroller;
+    private final OverScroller mScroller;
     private final GestureDetector mGestureDetector;
 
     private final int mChannelLayoutMargin;
@@ -103,9 +103,7 @@ public class EPG extends ViewGroup {
         mChannelImageCache = Maps.newHashMap();
         mChannelImageTargetCache = Maps.newHashMap();
 
-        // Adding some friction that makes the epg less flappy.
-        mScroller = new Scroller(context);
-        mScroller.setFriction(0.2f);
+        mScroller = new OverScroller(context);
 
         mEPGBackground = getResources().getColor(R.color.epg_background);
 
@@ -135,6 +133,14 @@ public class EPG extends ViewGroup {
     }
 
     @Override
+    public void computeScroll() {
+        if (mScroller.computeScrollOffset()) {
+            scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+            postInvalidateOnAnimation();
+        }
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
 
         if (epgData != null && epgData.hasData()) {
@@ -152,11 +158,6 @@ public class EPG extends ViewGroup {
             drawTimebar(canvas, drawingRect);
             drawTimeLine(canvas, drawingRect);
             drawResetButton(canvas, drawingRect);
-
-            // If scroller is scrolling/animating do scroll. This applies when doing a fling.
-            if (mScroller.computeScrollOffset()) {
-                scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
-            }
         }
     }
 
@@ -387,7 +388,7 @@ public class EPG extends ViewGroup {
                     @Override
                     public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                         mChannelImageCache.put(imageURL, bitmap);
-                        redraw();
+                        postInvalidateOnAnimation();
                         mChannelImageTargetCache.remove(imageURL);
                     }
 
@@ -597,7 +598,7 @@ public class EPG extends ViewGroup {
                     getXPositionStart() - getScrollX(),
                     0, withAnimation ? 600 : 0);
 
-            redraw();
+            postInvalidateOnAnimation();
         }
     }
 
@@ -685,14 +686,14 @@ public class EPG extends ViewGroup {
             mScroller.fling(getScrollX(), getScrollY(), -(int) vX,
                     -(int) vY, 0, mMaxHorizontalScroll, 0, mMaxVerticalScroll);
 
-            redraw();
+            postInvalidateOnAnimation();
             return true;
         }
 
         @Override
         public boolean onDown(MotionEvent e) {
             if (!mScroller.isFinished()) {
-                mScroller.forceFinished(true);
+                mScroller.abortAnimation();
                 return true;
             }
             return true;
