@@ -37,11 +37,11 @@ public class MockDataService {
     );
 
     private static List<String> availableChannelLogos = Lists.newArrayList(
-            "http://kmdev.se/epg/1.png",
-            "http://kmdev.se/epg/2.png",
-            "http://kmdev.se/epg/3.png",
-            "http://kmdev.se/epg/4.png",
-            "http://kmdev.se/epg/5.png"
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/SVT1_logo_2012.svg/1280px-SVT1_logo_2012.svg.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/SVT2_logo_2012.svg/1280px-SVT2_logo_2012.svg.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/TV3_Viasat.svg/1024px-TV3_Viasat.svg.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/TV4sweden_logo.svg/1024px-TV4sweden_logo.svg.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kanal_5_Sweden.svg/150px-Kanal_5_Sweden.svg.png"
     );
 
     public static Map<EPGChannel, List<EPGEvent>> getMockData() {
