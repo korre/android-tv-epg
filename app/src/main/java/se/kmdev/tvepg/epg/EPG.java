@@ -518,7 +518,7 @@ public class EPG extends ViewGroup {
     private Rect calculateChannelsHitArea() {
         mMeasuringRect.top = mTimeBarHeight;
         int visibleChannelsHeight = epgData.getChannelCount() * (mChannelLayoutHeight + mChannelLayoutMargin);
-        mMeasuringRect.bottom = visibleChannelsHeight < getHeight() ? visibleChannelsHeight : getHeight();
+        mMeasuringRect.bottom = Math.min(visibleChannelsHeight + mTimeBarHeight, getHeight());
         mMeasuringRect.left = 0;
         mMeasuringRect.right = mChannelLayoutWidth;
         return mMeasuringRect;
@@ -527,7 +527,7 @@ public class EPG extends ViewGroup {
     private Rect calculateProgramsHitArea() {
         mMeasuringRect.top = mTimeBarHeight;
         int visibleChannelsHeight = epgData.getChannelCount() * (mChannelLayoutHeight + mChannelLayoutMargin);
-        mMeasuringRect.bottom = visibleChannelsHeight < getHeight() ? visibleChannelsHeight : getHeight();
+        mMeasuringRect.bottom = Math.min(visibleChannelsHeight + mTimeBarHeight, getHeight());
         mMeasuringRect.left = mChannelLayoutWidth;
         mMeasuringRect.right = getWidth();
         return mMeasuringRect;
